@@ -1,0 +1,17 @@
+\chapter{\abstractname}
+
+Time series data mining has become essential for a large variety of disciplines ranging from seismology to medicine. With the use of matrix profiles, most target analyses,
+especially motif or discord discovery, have become trivial to a large extend. As the original formulations for calculating the matrix profile were relatively ineffective,
+substantial effort has been invested in computing them efficiently. In particular, the
+state-of-the-art algorithm SCAMP has convinced with its simplicity, parallelizability,
+and efficiency.
+
+As FPGA acceleration promises a combination of high performance
+and competitive energy efficiency, we present a - to the best of our knowledge first -
+systolic array-based design, based on the SCAMP algorithm, to compute matrix profiles
+efficiently on FPGAs. Our design mapped to a concrete architecture using a High-Level
+Synthesis tool. This approach allows us to maintain a high level of abstraction, use
+streaming abstractions, and enable maintainability and portability across FPGA devices.
+Kernels synthesized from our design are shown to offer competitive performance in
+practice, scaling with both compute and memory resources. Finally, we outline possible
+optimizations as a basis for future work.

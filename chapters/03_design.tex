@@ -1,0 +1,159 @@
+\chapter{Design}\label{chapter:design}
+
+The previous chapter has introduced the reader to the concept of matrix profiles and
+their efficient computation and key concepts of development on Cerebras Wafer Scale Engine. The following chapter presents the top-level architecture as a combination
+of a Driver Application and an Accelerated Kernel by utilizing this background.
+The presented design constitutes a tiled version of the algorithm described in
+Subsection 2.1.2 and can, therefore, decouple the problem size from the concrete kernel
+implementation. Given the hardware capabilities of the WSE-2, a Tiled version of the Kernel is introduced in the chapter and explores the various types of tiling solutions that can be incorporated.\\
+
+We then explore the various implications of resource allocation on the WSE-2 on the memory bandwidth, computation time and startup time.\\
+
+We finally look at various scheduling approaches for large and small time series.
+
+
+\section{Architecture}
+
+The program is divided into 3 parts.
+\subsection{CSL Kernel}
+
+\begin{lstlisting}
+    var row_iters: u8 = math_lib.min(n_x - exclusion_lower, n_y);
+
+	for (@range(u8, row_iters)) | row | {
+		var diag_max: u8 = math_lib.min(n_x - exclusion_upper + 1, n_x - row);
+
+		var cur_dg_b: f32 = dg_b[row];
+		var cur_df_b: f32 = df_b[row];
+		var cur_norm_b: f32 = norm_b[row];
+		for (@range(u8, exclusion_lower, diag_max, 1)) | diag | {
+			var col: u8 = diag + row;
+			// Calculate corr
+			var corr: f32 = cov[diag] * norm_a[col] * cur_norm_b;
+			if (corr > 0.99999946 and corr < 1.0) {
+				corr = math_lib.ceil(corr);
+			} else if (corr > 1.0) {
+				corr = math_lib.floor(corr);
+			}
+
+			if (math_lib.isNaN(corr)) {
+				// Smallest value possible is -1 so set to -2.
+				corr = -2.0;
+			}
+			// Update cov
+			var coeff: f32 = df_a[col] * cur_dg_b + dg_a[col] * cur_df_b;
+			cov[diag] = cov[diag] + coeff;
+
+			// Update profile
+			update_profile(corr, P_a, P_i_a, row, col);
+			update_profile(corr, P_b, P_i_b, col, row);
+		}
+	}
+\end{lstlisting}
+
+\subsection{Host Driver}
+\subsection{Driver}
+
+\section{Kernel Design}
+
+The main SCAMP algorithm.
+
+\begin{algorithm}
+\caption{SCAMP Driver}\label{alg:SCAMP}
+    \hspace*{\algorithmicindent} \textbf{Input} : Time Series $T$ of length \( n \in \mathbb{N} \) and subsequence length  \( m \in \mathbb{N} \) \\
+    \hspace*{\algorithmicindent} \textbf{Output} : Matrix Profile $MP$ and Matrix Profile Index $MPI$
+    \begin{algorithmic}[1]
+        \State $df,dg,inv \gets PreComputeStatistics(T, m);$
+        \State $QT_{init} \gets PreComputeInitialQTRow(T, m);$
+        \State $rowAggregates, columnAggregates \gets (-\inf, -1);$
+        \For{$iteration \gets 0$ \textbf{to} $\lceil \frac{n - m + 1}{1} - 1 \rceil$}
+            \State $iteration_i \gets MatrixProfileKernel(QT_{init}, $df$, $dg$, $inv$);$
+            \State $UpdateAggregates(rowAggregates, columnAggregates, iteration_i);$
+        \EndFor
+        \State $PostCompute(rowAggregates, columnAggregates);$\\
+        \Return $MP, MPI;$
+    \end{algorithmic}
+\end{algorithm}
+    
+\section{Tiling}
+
+\begin{itemize}
+    \item SCAMP implements tiling.
+    \item Talk about algorithm to compute tile positions.
+\end{itemize}
+
+\begin{algorithm}
+    \caption{Tiled Kernel}\label{alg:Tiled}
+        \hspace*{\algorithmicindent} \textbf{Input} : Time series $T_a$, $T_b$, $df$, $dg$, $inv$ and $args$ for current \textbf{Tile}.\\
+        \hspace*{\algorithmicindent} \textbf{Output} : Row- and Column-Wise Aggregates for the current \textbf{Tile}
+        \begin{algorithmic}[1]
+            \For{$ProcessingElement \gets 0$ \textbf{to} $w * h$}
+                \State $rowAggregates_{ProcessingElement} \gets (-\inf, -1);$
+                \State $columnAggregates_{ProcessingElement} \gets (-\inf, -1);$
+                \If{$args.full\_tile$ is $0$}
+                    \Comment{Compute only top triangle}
+                    \State $QT \gets computeQT(T_a, T_b);$
+                    \For{$row \gets  0$ \textbf{to} $min(args.n_x - args.exclusion\_lower, args.n_y)$}
+                        \For{$diag \gets args.exclusion\_lower$ \textbf{to} $min(args.n_x - args.exclusion\_upper + 1, args.n_x - row)$};
+                            \State $col \gets row + diag;$
+                            \State $correlation \gets QT_{diag} \cdot inv_{row} \cdot inv_{col};$
+                            \If{$correlation$ $>$ $rowAggregate_{ProcessingElement, row}.value$}
+                                \State $rowAggregate_{ProcessingElement, row}.value \gets (correlation, column);$
+                            \EndIf
+                            \If{$correlation$ $>$ $rowAggregate_{ProcessingElement, column}.value$}
+                                \State $rowAggregate_{ProcessingElement, column}.value \gets (correlation, row);$
+                            \EndIf
+                        \EndFor
+                    \EndFor
+                \EndIf
+            \EndFor
+            \State $rowAggregates \gets (-\inf, -1);$
+            \State $columnAggregates \gets (-\inf, -1);$
+            \For{$ProcessingElement \gets 0$ \textbf{to} $w * h$}
+                \State $Merge(rowAggregates, rowAggregates_{ProcessingElement});$
+                \State $Merge(columnAggregates, columnAggregate_{ProcessingElement});$
+            \EndFor
+            \Return $rowAggregates, columnAggregates;$
+
+        \end{algorithmic}
+\end{algorithm}
+    
+
+\subsection{Trapezoidal}
+
+\begin{itemize}
+    \item Area = b * h
+    \item Same as square.
+    \item Need modification to create large number of extra tiles with no elements.
+\end{itemize}
+
+\subsection{Square}
+
+\begin{itemize}
+    \item Area = w x h
+    \item Currently implemented in SCAMP
+    \item Edge cases are rectangles.
+    \item Diagonal tiles are upper triangles
+\end{itemize}
+
+\subsection{Triangles}
+
+\begin{itemize}
+    \item Area = 1/2 * b * h
+    \item Currently implemented in SCAMP, can also be implemneted on the cerebras interface
+    \item More jobs to be spread across limited number of PEs.
+    \item More iterations on larger time series.
+\end{itemize}
+
+
+\section{Resource Allocation}
+\subsection{Rectangle}
+
+
+\subsection{Square}
+
+\section{Scheduling}
+\subsection{One Shot}
+\subsection{Iterative}
+
+
