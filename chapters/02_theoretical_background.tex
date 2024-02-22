@@ -37,9 +37,9 @@ background), see Figure 2.1.\\
 \textit{Note:} By this definition, every subsequence is itself a time series.
 
 \begin{figure}[h!]
-\includegraphics[scale=0.125]{2_1}
-\centering
-\caption{Time Series of length \( \textit{n} \) = 13 and Subsequence \( T_{5,4} \) }
+    \includegraphics[scale=0.125]{2_1}
+    \centering
+    \caption{Time Series of length \( \textit{n} \) = 13 and Subsequence \( T_{5,4} \) }
 \end{figure}
 
 Calculating distances between subsequences is the core of the computation of matrix
@@ -88,16 +88,16 @@ By computing the distance profile for each subsequence of $T$, we obtain the so-
 \[
     D =
     \begin{pmatrix}
-        D_1\\
-        D_2\\
-        \vdots\\
+        D_1    \\
+        D_2    \\
+        \vdots \\
         D_{n-m+1}
     \end{pmatrix}
-    = 
+    =
     \begin{pmatrix}
-        d_{1,1} & d_{1,2} & \dots & d_{1,n-m+1}\\
-        d_{2,1} & d_{2,2} & \dots & d_{2,n-m+1}\\
-        \vdots & \vdots & \ddots & \vdots\\
+        d_{1,1}     & d_{1,2}           & \dots           & d_{1,n-m+1} \\
+        d_{2,1}     & d_{2,2}           & \dots           & d_{2,n-m+1} \\
+        \vdots      & \vdots            & \ddots          & \vdots      \\
         d_{n-m+1,1} & d_{n-m+1,2} \dots & d_{n-m+1,n-m+1}
     \end{pmatrix}
 \]
@@ -166,9 +166,9 @@ SCAMP employes an optimization on $\overline{QT_{i,j}}$ by not implicitly calcul
 where,
 
 \begin{equation}
-    df_k = 
+    df_k =
     \begin{cases}
-        0, & \text{if}\ k = 1\\
+        0,                             & \text{if}\ k = 1                 \\
         \frac{t_{k+m-1} - t_{k-1}}{2}, & \text{if}\ 2 \le k \le n - m + 1
     \end{cases}
 \end{equation}
@@ -177,9 +177,9 @@ and, with $\mu_i$ representing the sample mean of the subsequence $T_{i,m}$,
 
 
 \begin{equation}
-    dg_k = 
+    dg_k =
     \begin{cases}
-        0, & \text{if}\ k = 1\\
+        0,                                              & \text{if}\ k = 1                 \\
         {t_{k+m-1} + \left(t_{k-1} - \mu_{k-1}\right)}, & \text{if}\ 2 \le k \le n - m + 1
     \end{cases}
 \end{equation}
@@ -209,9 +209,9 @@ Note, while the computation described in Equation 2.6 introduces a diagonal depe
     \includegraphics[scale=0.125]{2_3}
     \centering
     \caption{Computation performed by the SCAMP algorithm. In particular, only values
-    above (and including) the main diagonal are computed. The diagonal
-    dependency introduced through the updated formulation is visualized
-    through upward-pointing arrows.}
+        above (and including) the main diagonal are computed. The diagonal
+        dependency introduced through the updated formulation is visualized
+        through upward-pointing arrows.}
 \end{figure}
 
 SCAMP does not compute the entire matrix but rather only elements above the main
@@ -222,35 +222,36 @@ in Figure 2.3.
 
 \section{Cerebras Wafer Scale Engine}
 
-The field of artificial intelligence (AI) has witnessed an exponential growth in recent years, catalyzed by advancements in hardware architectures tailored for accelerating AI workloads. Among these architectures, the Cerebras Wafer Scale Engine (WSE-2) stands out as a revolutionary platform designed to address the computational demands of modern AI models. This introduction provides an overview of the Cerebras WSE, its significance in AI research, and its potential implications for various domains.\\
+Cerebras Systems' CS-2 stands as a groundbreaking hardware solution tailored for accelerating deep learning tasks. At its core lies the Cerebras second-generation Wafer Scale Engine (WSE-2), a monumental achievement boasting around 1.2 trillion transistors, making it the largest chip in the industry. The CS-2 wafer operates as a multiple instruction, multiple data (MIMD) distributed-memory system, interconnected via a 2D-mesh fabric. Each fundamental unit on the wafer, referred to as a tile, encompasses a processor core, its memory, and a router facilitating connections. These routers link with neighboring tiles, forming a $7 \times 12$ array housing 84 identical dies, each containing thousands of tiles. Notably, the system integrates 40 gigabytes of on-chip SRAM, offering rapid access within a single clock cycle, alongside staggering memory and interconnect bandwidths of 20 petabytes/sec and 220 petabits/sec, respectively. Comparatively, the WSE-2 dwarfs graphical processing accelerators with over 100 times the compute cores, 1000 times more high-speed on-chip memory, and over 12,000 times more fabric bandwidth. Spanning approximately 46,000 mm$^2$ in size, the WSE-2 employs Sparse Linear Algebra Compute (SLAC) cores for efficient computation, boasting over 850,000 of these cores designed specifically for sparse linear algebra tasks crucial in machine learning. This massive design flexibility empowers the WSE-2 to adapt to various linear algebra paradigms, effectively catering to industry-grade applications. Leveraging SLAC cores enables the WSE-2 to bypass zero-to-zero multiplications in large datasets, optimizing compute resources and system efficiency. The Cerebras Software platform complements this hardware prowess by facilitating seamless machine learning model training, supporting popular frameworks such as TensorFlow and PyTorch. Its graph compiler translates ML models into optimized executables for the CS-2, ensuring smooth integration into researchers' workflows.
 
-The Cerebras WSE-2 is a groundbreaking computing platform developed by Cerebras Systems, designed to tackle the challenges of training and inference in deep learning models. Unlike traditional chip architectures composed of multiple individual chips interconnected through complex networks, the WSE-2 adopts a radically different approach by integrating all computational elements onto a single wafer. This wafer-scale integration eliminates the need for complex interconnects, minimizing latency and maximizing throughput, thus offering unparalleled performance for AI workloads.\\
+\begin{figure}[h!]
+    \includegraphics[scale=0.25]{cerebras_wse-2}
+    \centering
+    \caption{An overview of the Wafer Scale Engine (WSE). The WSE (to the right) occupies an entire wafer, and is a
+    2D array of dies. Each die is itself a grid of tiles (in the middle), which contains a router, a processing element and
+    single-cycle access memory (to the left). In total, the WSE-2 embeds 2.6 trillion transistors in a silicon area of 46,225
+    mm2. \cite{9}}
+\end{figure}
 
-\textbf{Key Features:}
+The absence of off-chip memory is a distinctive trait of the WSE-2. Unlike other architectures, the WSE-2 doesn't rely on dynamic random access memory (DRAM). Instead, it exclusively employs single-cycle latency static random access memory (SRAM), providing approximately 40 GB of memory. This unique characteristic positions the architecture as a potentially excellent option for HPC simulation kernels that are limited by memory bandwidth or latency. The theoretical bandwidth of the WSE-2 is remarkable, reaching 20 petabytes/second, surpassing the A100 GPU, which typically offers 1.5–2.0 terabytes/second bandwidth depending on the specific model.
 
-\begin{itemize}
-    \item \textbf{Wafer-scale Integration:} The most distinctive feature of the Cerebras WSE-2 is its wafer-scale integration, where all compute, memory, and communication resources are densely packed onto a single silicon wafer. This design eliminates the communication overheads associated with traditional multi-chip systems, enabling efficient parallel processing of AI tasks.
-    \item \textbf{Large-scale Array of Compute Cores:} The WSE-2 comprises thousands of processing cores, each optimized for executing neural network computations. These cores operate in parallel, leveraging the massive parallelism inherent in deep learning algorithms to accelerate model training and inference.
-    \item \textbf{On-chip Memory Hierarchy:} To facilitate efficient data access and manipulation, the WSE-2 incorporates a sophisticated on-chip memory hierarchy, including fast local memory and caches accessible by all compute cores. This design minimizes data movement overheads, further enhancing performance and energy efficiency.
-    \item \textbf{High-bandwidth Interconnect:} Despite its monolithic design, the WSE-2 features a high-bandwidth interconnect that enables efficient communication between compute cores and memory units. This interconnect architecture ensures seamless data exchange, enabling scalable performance for both small and large-scale AI models.
-\end{itemize}
+The Cerebras System (CS) is a self-contained rack-mounted system containing packaging, power supply, cooling and I/O for a single WSE. The CS communicates via parallel 100 Gigabit ethernet connections to a host CPU cluster. Throughout this documentation, the CS is referred to as the “device,” the host CPU cluster as the “host,” and the ethernet connections connecting the two as “host I/O”. The SDK provides mechanisms for using host I/O to move data between host and device or launch functions on the device.
 
-At the heart of the Cerebras CS-2 is the second-generation Wafer-Scale Engine (WSE-2). the WSE-2 is a massive parallel processor built from a single 300mm wafer. It offers
-850,000 cores, optimized for sparse linear algebra with support for FP16, FP32, and INT16 data
-types. It contains 40GB of onboard SRAM divided between its cores, with 220Pb/s of interconnect
-bandwidth and 20PB/s of memory bandwidth, ensuring that each core can access its local memory
-in a single clock cycle.\\
-% https://f.hubspotusercontent30.net/hubfs/8968533/Cerebras%20SDK%20Technical%20Overview%20White%20Paper.pdf#new_tab
+The below figure gives a visual representation of the mesh of PEs that make up the WSE, and its connections to the outside world. Data is streamed onto the device via host I/O, and enters the WSE through a series of links along its edges. The programming model of the SDK abstracts away the details of these links, and allows the programmer to copy data from the host to arbitrary PEs on the device.
+
+\begin{figure}[h!]
+    \includegraphics[scale=0.125]{PEs.png}
+    \centering
+    \caption{The PEs are interconnected cardinally allowing for communication between PEs in packets of size 32 bits.}
+\end{figure}
 
 
 The device allows programmers to interact with the cores using a lower-level code that targets the WSE's microarchitecture directly
 using a domain-specific programming language called the Cerebras Software Language, or CSL. In CSL, the cores on the WSE-2 are referred to as Processing Elements (PEs). The programmer
 can write code that targets every PE of the wafer such that compute and memory are optimally
 utilized. The programmer communicates to the device via a set of runtime APIs executed on one
-or more host computers.\\
-
+or more host computers.
 Although this device is primarily motivated towards AI workloads, This thesis explores the viability of applying the available hardware and compute power to other diverse workloads like Matrix Profiling.\\
-
 
 \subsection{Processing Elements}
 
@@ -258,13 +259,25 @@ The 850,000 PEs on the WSE-2 are structured in a 2D grid. Each PE contains a gen
 write access latency. PE-to-PE communication latency is also one cycle. The PE contains a network
 router with links to the CE and to the routers of the four nearest PEs in the north, south, east,
 and west directions. Communication is integrated into the instruction set, at single 32-bit word
-granularity, and is accordingly as fast as arithmetic.\\
-
+granularity, and is accordingly as fast as arithmetic.
+Using the Cerebras SDK, each WSE-2 exposes up to 750×994 user programmable
+PEs (i.e., 745,500 PEs). While the WSE-2 hardware actually contains about 850,000
+PEs in total, some additional rows and columns around the user-space PEs are reserved for memory movement operations (to facilitate abstractions for moving data
+to/from the host) and other system functions
 The CE's instruction set supports FP32, FP16, and INT16 data types. The Cerebras ISA supports
 optimized vector operations for processing tensors as well as general-purpose control instructions.
 A CE can execute vector instructions that perform up to eight operations per clock for FP16
-operands.\\
+operands.
+Each PE is additionaly clocked at 850MHz. Each program is allowed to allocate a certain number of PEs for executing the workload, henceforth, we will refer to this as the \texttt{Resource Rectangle}.
 
-Each PE is additionaly clocked at 850MHz. Each program is allowed to allocate a certain number of PEs for executing the workload, henceforth, we will refer to this as the resource rectangle. 
+\begin{figure}[h!]
+    \includegraphics[scale=0.5]{fabric}
+    \centering
+    \caption{A \texttt{Resource Rectangle}, allocating a partial rectangle of the Wafer for computation}
+\end{figure}
 
 \section{Related Works}
+
+The Cerebras WSE-2 has been used by various organisations, including large global corporations, for accelerating machine learning and other purposes. Some interesting AI breakthroughs, the porting of the GPT model to Cerebras \cite{3}, The benefits of accelerating machine learning workloads has been well proven, however there are far fewer studies concerned with using the WSE to run more traditional computational tasks. Already, there have been numerous notable successes from running Stencil computations for solving the 3D wave equation using finite-difference method in seismic imaging applications \cite{5}, fast Fourier transforms for one, two, and three-dimensional arrays \cite{6}, Efficient algorithm for Monte Carlo particle transport \cite{7}, Stencil computations reaching up to 503 TFLOPs on WSE-2, a figure that only full clusters can eventually yield \cite{8}
+
+This work is heavily based on the SCAMP paper introduce by Z. Zimmerman et a \cite{4}. The approach to parallelism introduced and optimized by the SCAMP algorithm could be easy mapped onto the distributed MIMD architecture of Cerebras (See Section 3). When calculating the Matrix Profile aggregates of a row or column, the algorithm does not contain any data dependency across rows or columns which allows us to exploit weak scaling which the Cerebras system is aimed at. This form of algorithm is widespread in scientific computing and hence represents the underlying computational pattern in use by a large number of HPC codes.

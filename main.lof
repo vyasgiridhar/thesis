@@ -5,7 +5,23 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Time Series of length \( \textit {n} \) = 13 and Subsequence \( T_{5,4} \) \relax }}{3}{figure.caption.3}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Matrix Profile $MP$ of a Time series $T$ as the column-wise minima of the Distance Matrix and the Matrix Profile Index $MPI$ as the vector of the corresponding indices. In this example, $d_{2,j}$ represents a column-wise minimum and is therefore integrated into the Matrix Profile.\relax }}{6}{figure.caption.4}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Computation performed by the SCAMP algorithm. In particular, only values above (and including) the main diagonal are computed. The diagonal dependency introduced through the updated formulation is visualized through upward-pointing arrows.\relax }}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces An overview of the Wafer Scale Engine (WSE). The WSE (to the right) occupies an entire wafer, and is a 2D array of dies. Each die is itself a grid of tiles (in the middle), which contains a router, a processing element and single-cycle access memory (to the left). In total, the WSE-2 embeds 2.6 trillion transistors in a silicon area of 46,225 mm2. \blx@tocontentsinit {0}\cite {9}\relax }}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The PEs are interconnected cardinally allowing for communication between PEs in packets of size 32 bits.\relax }}{10}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces A \texttt {Resource Rectangle}, allocating a partial rectangle of the Wafer for computation\relax }}{11}{figure.caption.8}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture\relax }}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Tiling Representation\relax }}{20}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces One Shot Execution of a small Time Series\relax }}{23}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Iterative Execution of a large Time Series\relax }}{24}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Memory Copy to the device, The SDK allows us to define the order of exporting data along the PEs and the symbol to which the data needs to be transferred\relax }}{27}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Memory Copy from the device, Note the explicit PEs width and height declaration\relax }}{28}{figure.caption.15}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Plot of Observed Execution time of different tile sizes on the Simulator\relax }}{32}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Floating point operations vs tile size\relax }}{33}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Memory Usage of a single PE plotted against Tile Size. The theoretical limit to the tile size is 1010 but what is observed is a maximum limit of 100 per PE. Practically, we were able to use only 4.566 KB of memory of the PE.\relax }}{34}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Time series of different random distributions\relax }}{36}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Error rate on different probabilistic distributions\relax }}{37}{figure.caption.23}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

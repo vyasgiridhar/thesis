@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+        \PYG{n}{runner}\PYG{o}{.}\PYG{n}{memcpy\PYGZus{}d2h}\PYG{p}{(}\PYG{n}{MP\PYGZus{}A\PYGZus{}result}\PYG{p}{,} \PYG{n}{MP\PYGZus{}A\PYGZus{}symbol}\PYG{p}{,}
+                      \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{,}
+                      \PYG{n}{MAX\PYGZus{}TILE\PYGZus{}SIZE} \PYG{o}{\PYGZhy{}} \PYG{n}{WINDOW} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{streaming}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,}
+                      \PYG{n}{order}\PYG{o}{=}\PYG{n}{MemcpyOrder}\PYG{o}{.}\PYG{n}{ROW\PYGZus{}MAJOR}\PYG{p}{,}
+                      \PYG{n}{data\PYGZus{}type}\PYG{o}{=}\PYG{n}{MemcpyDataType}\PYG{o}{.}\PYG{n}{MEMCPY\PYGZus{}32BIT}\PYG{p}{,}
+                      \PYG{n}{nonblock}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+    \PYG{n}{runner}\PYG{o}{.}\PYG{n}{memcpy\PYGZus{}d2h}\PYG{p}{(}\PYG{n}{MP\PYGZus{}B\PYGZus{}result}\PYG{p}{,} \PYG{n}{MP\PYGZus{}B\PYGZus{}symbol}\PYG{p}{,}
+                      \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{width}\PYG{p}{,} \PYG{n}{height}\PYG{p}{,}
+                      \PYG{n}{MAX\PYGZus{}TILE\PYGZus{}SIZE} \PYG{o}{\PYGZhy{}} \PYG{n}{WINDOW} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{streaming}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,}
+                      \PYG{n}{order}\PYG{o}{=}\PYG{n}{MemcpyOrder}\PYG{o}{.}\PYG{n}{ROW\PYGZus{}MAJOR}\PYG{p}{,}
+                      \PYG{n}{data\PYGZus{}type}\PYG{o}{=}\PYG{n}{MemcpyDataType}\PYG{o}{.}\PYG{n}{MEMCPY\PYGZus{}32BIT}\PYG{p}{,}
+                      \PYG{n}{nonblock}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+\end{Verbatim}

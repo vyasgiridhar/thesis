@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+    \PYG{n}{runner}\PYG{o}{.}\PYG{n}{launch}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}compute\PYGZsq{}}\PYG{p}{,} \PYG{n}{nonblock}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+\end{Verbatim}

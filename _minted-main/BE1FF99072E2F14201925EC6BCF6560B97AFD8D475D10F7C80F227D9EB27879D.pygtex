@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{x}{    runner.memcpy\PYGZus{}h2d(T\PYGZus{}A\PYGZus{}symbol, np.array(T\PYGZus{}a, dtype=np.float32),}
+\PYG{x}{                      0, 0, width, height,}
+\PYG{x}{                      MAX\PYGZus{}TILE\PYGZus{}SIZE + WINDOW, streaming=False,}
+\PYG{x}{                      order=MemcpyOrder.ROW\PYGZus{}MAJOR,}
+\PYG{x}{                      data\PYGZus{}type=MemcpyDataType.MEMCPY\PYGZus{}32BIT,}
+\PYG{x}{                      nonblock=False)}
+\PYG{x}{    runner.memcpy\PYGZus{}h2d(T\PYGZus{}B\PYGZus{}symbol, np.array(T\PYGZus{}b, dtype=np.float32),}
+\PYG{x}{                      0, 0, width, height,}
+\PYG{x}{                      MAX\PYGZus{}TILE\PYGZus{}SIZE + WINDOW, streaming=False,}
+\PYG{x}{                      order=MemcpyOrder.ROW\PYGZus{}MAJOR,}
+\PYG{x}{                      data\PYGZus{}type=MemcpyDataType.MEMCPY\PYGZus{}32BIT,}
+\PYG{x}{                      nonblock=False)}
+\end{Verbatim}

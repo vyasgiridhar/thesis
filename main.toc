@@ -8,36 +8,48 @@
 \contentsline {subsection}{\numberline {2.1.2}Computation}{6}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Cerebras Wafer Scale Engine}{8}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Processing Elements}{10}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}Related Works}{10}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Design}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Architecture}{11}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}CSL Kernel}{11}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Host Driver}{12}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Driver}{12}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Kernel Design}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Tiling}{12}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Trapezoidal}{12}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Square}{13}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Triangles}{13}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Resource Allocation}{15}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Rectangle}{15}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Square}{15}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Scheduling}{15}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}One Shot}{15}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Iterative}{15}{subsection.3.5.2}%
-\contentsline {chapter}{\numberline {4}Implementation}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}WSE Programming Environment}{16}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}CSL}{16}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Python Driver}{16}{subsection.4.1.2}%
-\contentsline {chapter}{\numberline {5}Experiments and Results}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Model}{17}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Single Tile}{17}{subsection.5.1.1}%
-\contentsline {subsubsection}{\nonumberline Execution Time}{17}{subsubsection*.7}%
-\contentsline {subsubsection}{\nonumberline Memory}{17}{subsubsection*.9}%
-\contentsline {section}{\numberline {5.2}Performance}{17}{section.5.2}%
-\contentsline {subsubsection}{\nonumberline CPU \& GPU Baseline}{17}{subsubsection*.11}%
-\contentsline {section}{\numberline {5.3}Error}{17}{section.5.3}%
-\contentsline {chapter}{\nonumberline List of Figures}{18}{chapter*.12}%
-\contentsline {chapter}{\nonumberline List of Tables}{19}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliography}{20}{chapter*.14}%
+\contentsline {section}{\numberline {2.3}Related Works}{11}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Design}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Architecture}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}CSL Kernel}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Host Application}{16}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Wrapper Application}{16}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Kernel Design}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Vanilla Kernel}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Tiled Kernel}{17}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Tiling Approaches}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Trapezoidal}{22}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Triangles}{22}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Resource Allocation}{22}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Rectangle}{22}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Square}{22}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Scheduling}{22}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}One Shot}{23}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Iterative}{23}{subsection.3.5.2}%
+\contentsline {chapter}{\numberline {4}Implementation}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}WSE Programming Environment}{26}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Execution Model}{26}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Build Process}{26}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Host Code}{27}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Kernel Implementation}{28}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Experiments and Results}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Model}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Execution Time}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Kernel Execution Time}{32}{subsection.5.2.1}%
+\contentsline {subsubsection}{\nonumberline Floating point operations per second}{33}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {5.2.2}Overall Execution time}{33}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Memory}{33}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Weak Scaling Experiments}{34}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Precision Evaluation}{35}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Comparison to CPU \& GPU Baseline}{36}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Execution on Real world datasets}{38}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Experiences}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Cerebras WSE-2}{39}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Workflow}{39}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Build Process}{39}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Scaling}{39}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{40}{chapter.7}%
+\contentsline {chapter}{\nonumberline List of Figures}{41}{chapter*.25}%
+\contentsline {chapter}{\nonumberline List of Tables}{43}{chapter*.26}%
+\contentsline {chapter}{\nonumberline Bibliography}{44}{chapter*.27}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

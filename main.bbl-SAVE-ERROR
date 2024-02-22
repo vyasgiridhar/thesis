@@ -1,0 +1,255 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{1}{inproceedings}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a21facded71b2c81786f156cd7c6591}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a801c327da4ae044b392c77858620377}{%
+           family={Ulanova},
+           familyi={U\bibinitperiod},
+           given={Liudmila},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fabc9c8060ce6d608fd7e7a00322517c}{%
+           family={Begum},
+           familyi={B\bibinitperiod},
+           given={Nurjahan},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6619807ab5a12b7ee1d6a28dfbec53bd}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Yifei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c405e0c94297ac37d92350e926e0dc02}{%
+           family={Dau},
+           familyi={D\bibinitperiod},
+           given={Hoang\bibnamedelima Anh},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5db64a034543748c8740a92cf3b6e940}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Diego\bibnamedelima Furtado},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6edc244104556f9fb8ad6320f0e6da1f}{%
+           family={Mueen},
+           familyi={M\bibinitperiod},
+           given={Abdullah},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{849288a32283180b3fc6813ce1b7ff1a}
+      \strng{fullhash}{df9a85e2d61f06dfd2b8e0dfc24c5237}
+      \strng{bibnamehash}{df9a85e2d61f06dfd2b8e0dfc24c5237}
+      \strng{authorbibnamehash}{df9a85e2d61f06dfd2b8e0dfc24c5237}
+      \strng{authornamehash}{849288a32283180b3fc6813ce1b7ff1a}
+      \strng{authorfullhash}{df9a85e2d61f06dfd2b8e0dfc24c5237}
+      \field{labelalpha}{Yeh+16}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE 16th International Conference on Data Mining (ICDM)}
+      \field{title}{Matrix Profile I: All Pairs Similarity Joins for Time Series: A Unifying View That Includes Motifs, Discords and Shapelets}
+      \field{year}{2016}
+      \field{pages}{1317\bibrangedash 1322}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICDM.2016.0179
+      \endverb
+      \keyw{Time series analysis;Approximation algorithms;Euclidean distance;Data mining;Indexes;Clustering algorithms;Text processing;Time Series;Similarity Joins;Motif Discovery}
+    \endentry
+    \entry{2}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=4a21facded71b2c81786f156cd7c6591}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ba3a3d9bc0cfd3c3cc5c7ef92a9bbb44}{%
+           family={Zimmerman},
+           familyi={Z\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=97ca092285a35d1efd30a971f184958d}{%
+           family={Senobari},
+           familyi={S\bibinitperiod},
+           given={Nader\bibnamedelima Shakibay},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2ea942a20ae252b235c7b3eb29a7a3c}{%
+           family={Funning},
+           familyi={F\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6edc244104556f9fb8ad6320f0e6da1f}{%
+           family={Mueen},
+           familyi={M\bibinitperiod},
+           given={Abdullah},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63ea454245d0a241154e441cacaf1558}{%
+           family={Brisk},
+           familyi={B\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7618dc92fdbbcb3ee4749dd9f73d56a8}
+      \strng{fullhash}{df3af3960526abaee338b4f165d5713f}
+      \strng{bibnamehash}{df3af3960526abaee338b4f165d5713f}
+      \strng{authorbibnamehash}{df3af3960526abaee338b4f165d5713f}
+      \strng{authornamehash}{7618dc92fdbbcb3ee4749dd9f73d56a8}
+      \strng{authorfullhash}{df3af3960526abaee338b4f165d5713f}
+      \field{labelalpha}{Zhu+16}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE 16th International Conference on Data Mining (ICDM)}
+      \field{title}{Matrix Profile II: Exploiting a Novel Algorithm and GPUs to Break the One Hundred Million Barrier for Time Series Motifs and Joins}
+      \field{year}{2016}
+      \field{pages}{739\bibrangedash 748}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/ICDM.2016.0085
+      \endverb
+      \keyw{Time series analysis;Earthquakes;Seismology;Scalability;Data mining;Graphics processing units;Indexes;Time series;joins;motifs;GPUs}
+    \endentry
+    \entry{3}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=ba3a3d9bc0cfd3c3cc5c7ef92a9bbb44}{%
+           family={Zimmerman},
+           familyi={Z\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5927be35090e318935fc253b062b328a}{%
+           family={Kamgar},
+           familyi={K\bibinitperiod},
+           given={Kaveh},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=97ca092285a35d1efd30a971f184958d}{%
+           family={Senobari},
+           familyi={S\bibinitperiod},
+           given={Nader\bibnamedelima Shakibay},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9612b07ff51294a538913db3b6d7c6d0}{%
+           family={Crites},
+           familyi={C\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2ea942a20ae252b235c7b3eb29a7a3c}{%
+           family={Funning},
+           familyi={F\bibinitperiod},
+           given={Gareth},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=63ea454245d0a241154e441cacaf1558}{%
+           family={Brisk},
+           familyi={B\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Santa Cruz, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{c2540713228f78b0967373c9daed0232}
+      \strng{fullhash}{328931b8684dde39532e143c19e0de5e}
+      \strng{bibnamehash}{328931b8684dde39532e143c19e0de5e}
+      \strng{authorbibnamehash}{328931b8684dde39532e143c19e0de5e}
+      \strng{authornamehash}{c2540713228f78b0967373c9daed0232}
+      \strng{authorfullhash}{328931b8684dde39532e143c19e0de5e}
+      \field{labelalpha}{Zim+19}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the ACM Symposium on Cloud Computing}
+      \field{isbn}{9781450369732}
+      \field{series}{SoCC '19}
+      \field{title}{Matrix Profile XIV: Scaling Time Series Motif Discovery with GPUs to Break a Quintillion Pairwise Comparisons a Day and Beyond}
+      \field{year}{2019}
+      \field{pages}{74\bibrangedash 86}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/3357223.3362721
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3357223.3362721
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3357223.3362721
+      \endverb
+      \keyw{AB-Join,Cloud Computing,Entomology,Fault-Tolerance,GPU,Matrix Profile,Numerical Optimization,SCAMP,Seismology,Self-Join,Spot Instance,Tiling,Time Series}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
