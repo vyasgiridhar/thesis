@@ -3,7 +3,7 @@ OUT  := build
 
 .PHONY: pdf
 pdf:
-	latexmk -interaction=nonstopmode -outdir=$(OUT) -pdf -halt-on-error $(FILE)
+	latexmk -f -synctex=1 -interaction=nonstopmode -shell-escape -outdir=$(OUT) -pdf $(FILE)
 
 .PHONY: watch
 watch:
