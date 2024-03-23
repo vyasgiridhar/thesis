@@ -19,6 +19,91 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{10.1093/gji/ggy100}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ae80ba399dc3bc293c288a0af262e5da}{%
+           family={Bergen},
+           familyi={B\bibinitperiod},
+           given={Karianne\bibnamedelima J},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=07a32099eef6927fda3905bb5800b621}{%
+           family={Beroza},
+           familyi={B\bibinitperiod},
+           given={Gregory\bibnamedelima C},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fa9f406a4084a9ea26fb3c293090d085}
+      \strng{fullhash}{fa9f406a4084a9ea26fb3c293090d085}
+      \strng{bibnamehash}{fa9f406a4084a9ea26fb3c293090d085}
+      \strng{authorbibnamehash}{fa9f406a4084a9ea26fb3c293090d085}
+      \strng{authornamehash}{fa9f406a4084a9ea26fb3c293090d085}
+      \strng{authorfullhash}{fa9f406a4084a9ea26fb3c293090d085}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{New blind waveform-similarity-based detection methods, such as Fingerprint and Similarity Thresholding (FAST), have shown promise for detecting weak signals in long-duration, continuous waveform data. While blind detectors are capable of identifying similar or repeating waveforms without templates, they can also be susceptible to false detections due to local correlated noise. In this work, we present a set of three new methods that allow us to extend single-station similarity-based detection over a seismic network; event-pair extraction, pairwise pseudo-association, and event resolution complete a post-processing pipeline that combines single-station similarity measures (e.g. FAST sparse similarity matrix) from each station in a network into a list of candidate events. The core technique, pairwise pseudo-association, leverages the pairwise structure of event detections in its network detection model, which allows it to identify events observed at multiple stations in the network without modeling the expected moveout. Though our approach is general, we apply it to extend FAST over a sparse seismic network. We demonstrate that our network-based extension of FAST is both sensitive and maintains a low false detection rate. As a test case, we apply our approach to 2 weeks of continuous waveform data from five stations during the foreshock sequence prior to the 2014 Mw 8.2 Iquique earthquake. Our method identifies nearly five times as many events as the local seismicity catalogue (including 95 per cent of the catalogue events), and less than 1 per cent of these candidate events are false detections.}}
+      \field{issn}{0956-540X}
+      \field{journaltitle}{Geophysical Journal International}
+      \field{month}{03}
+      \field{number}{3}
+      \field{title}{{Detecting earthquakes over a seismic network using single-station similarity measures}}
+      \field{volume}{213}
+      \field{year}{2018}
+      \field{pages}{1984\bibrangedash 1998}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1093/gji/ggy100
+      \endverb
+      \verb{eprint}
+      \verb https://academic.oup.com/gji/article-pdf/213/3/1984/24638013/ggy100.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1093/gji/ggy100
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1093/gji/ggy100
+      \endverb
+    \endentry
+    \entry{257870}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5c7a755a65b12435d3cf6b5d72a54c1e}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={M.L.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a336d858381ec9ea5d9c0c6faec7aa5}{%
+           family={Toborg},
+           familyi={T\bibinitperiod},
+           given={S.T.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \strng{fullhash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \strng{bibnamehash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \strng{authorbibnamehash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \strng{authornamehash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \strng{authorfullhash}{3d7200e04d5ba19540964ddcdb8ea18c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Components, Hybrids, and Manufacturing Technology}
+      \field{number}{7}
+      \field{title}{3-D wafer scale architectures for neural network computing}
+      \field{volume}{16}
+      \field{year}{1993}
+      \field{pages}{646\bibrangedash 655}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/33.257870
+      \endverb
+      \keyw{Computer architecture;Neural networks;Computer networks;Prototypes;Neural network hardware;Backpropagation algorithms;Multi-layer neural network;Semiconductor device modeling;CMOS technology;Wafer scale integration}
+    \endentry
     \entry{8}{misc}{}
       \name{author}{14}{}{%
         {{un=0,uniquepart=base,hash=c405e0c94297ac37d92350e926e0dc02}{%
@@ -27,12 +112,12 @@
            given={Hoang\bibnamedelima Anh},
            giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+        {{un=1,uniquepart=given,hash=1164ac6d1586ceeb53e02cf48b555413}{%
            family={Keogh},
            familyi={K\bibinitperiod},
            given={Eamonn},
            giveni={E\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=5927be35090e318935fc253b062b328a}{%
            family={Kamgar},
            familyi={K\bibinitperiod},
@@ -106,11 +191,109 @@
       \strng{authorbibnamehash}{75393c54fc7418705e1f760ca1d1a86c}
       \strng{authornamehash}{72fecc31ef6a1bac59b993d3231f5306}
       \strng{authorfullhash}{75393c54fc7418705e1f760ca1d1a86c}
+      \field{extraname}{1}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{8}
+      \field{note}{\url{https://www.cs.ucr.edu/~eamonn/time_series_data_2018/}}
+      \field{title}{The UCR Time Series Classification Archive}
+      \field{year}{2018}
+    \endentry
+    \entry{UCRArchive2018}{misc}{}
+      \name{author}{14}{}{%
+        {{un=0,uniquepart=base,hash=c405e0c94297ac37d92350e926e0dc02}{%
+           family={Dau},
+           familyi={D\bibinitperiod},
+           given={Hoang\bibnamedelima Anh},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=5927be35090e318935fc253b062b328a}{%
+           family={Kamgar},
+           familyi={K\bibinitperiod},
+           given={Kaveh},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a21facded71b2c81786f156cd7c6591}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a21948212697d76cb5c71477499d435f}{%
+           family={Gharghabi},
+           familyi={G\bibinitperiod},
+           given={Shaghayegh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e330ee6fdbcc58b2d05c78044c55cbdf}{%
+           family={Ratanamahatana},
+           familyi={R\bibinitperiod},
+           given={Chotirat\bibnamedelima Ann},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=045a80f3c9b12b6a0f3963b846249409}{%
+           family={Yanping},
+           familyi={Y\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=0aa463ac9f748665f1cfe6ee1ad5afe2}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fabc9c8060ce6d608fd7e7a00322517c}{%
+           family={Begum},
+           familyi={B\bibinitperiod},
+           given={Nurjahan},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c7fb166325e9c0da61ccc1e704db8c97}{%
+           family={Bagnall},
+           familyi={B\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6edc244104556f9fb8ad6320f0e6da1f}{%
+           family={Mueen},
+           familyi={M\bibinitperiod},
+           given={Abdullah},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3fbb776686ffc528876bf7b1e8a861a5}{%
+           family={Batista},
+           familyi={B\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ebae98bc34ede0fc6212cdfcfc15d43}{%
+           family={Hexagon-ML},
+           familyi={H\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{72fecc31ef6a1bac59b993d3231f5306}
+      \strng{fullhash}{75393c54fc7418705e1f760ca1d1a86c}
+      \strng{bibnamehash}{75393c54fc7418705e1f760ca1d1a86c}
+      \strng{authorbibnamehash}{75393c54fc7418705e1f760ca1d1a86c}
+      \strng{authornamehash}{72fecc31ef6a1bac59b993d3231f5306}
+      \strng{authorfullhash}{75393c54fc7418705e1f760ca1d1a86c}
+      \field{extraname}{2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
       \field{note}{\url{https://www.cs.ucr.edu/~eamonn/time_series_data_2018/}}
       \field{title}{The UCR Time Series Classification Archive}
       \field{year}{2018}
@@ -183,6 +366,287 @@
       \verb{eprint}
       \verb 2304.03208
       \endverb
+    \endentry
+    \entry{Fox_2017}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=315dd3b68e8cd837e56b28b9acab477f}{%
+           family={Fox},
+           familyi={F\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7013b49aa83e68514f66da5620d89409}{%
+           family={Ang},
+           familyi={A\bibinitperiod},
+           given={Lynn},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=36fc65460c5c7d667bfadd3113912ae2}{%
+           family={Jaiswal},
+           familyi={J\bibinitperiod},
+           given={Mamta},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a878f07d359bfb3e8a39a75513f69c9a}{%
+           family={Pop-Busui},
+           familyi={P\bibinithyphendelim B\bibinitperiod},
+           given={Rodica},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cb8509d588fc0fc5f051b14ffed83827}{%
+           family={Wiens},
+           familyi={W\bibinitperiod},
+           given={Jenna},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{37ebd025cb712652628985a45db44cea}
+      \strng{fullhash}{d15a5938ce86ab032494250699ab2972}
+      \strng{bibnamehash}{d15a5938ce86ab032494250699ab2972}
+      \strng{authorbibnamehash}{d15a5938ce86ab032494250699ab2972}
+      \strng{authornamehash}{37ebd025cb712652628985a45db44cea}
+      \strng{authorfullhash}{d15a5938ce86ab032494250699ab2972}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}
+      \field{month}{8}
+      \field{series}{KDD ’17}
+      \field{title}{Contextual Motifs: Increasing the Utility of Motifs using Contextual Data}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1145/3097983.3098068
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1145/3097983.3098068
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1145/3097983.3098068
+      \endverb
+    \endentry
+    \entry{8215484}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=a21948212697d76cb5c71477499d435f}{%
+           family={Gharghabi},
+           familyi={G\bibinitperiod},
+           given={Shaghayegh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6619807ab5a12b7ee1d6a28dfbec53bd}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Yifei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5927be35090e318935fc253b062b328a}{%
+           family={Kamgar},
+           familyi={K\bibinitperiod},
+           given={Kaveh},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a801c327da4ae044b392c77858620377}{%
+           family={Ulanova},
+           familyi={U\bibinitperiod},
+           given={Liudmila},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e88bf4190ed535a1adb41a09929243d6}
+      \strng{fullhash}{fbab83538d2fce0d09419ff0a719dbc7}
+      \strng{bibnamehash}{fbab83538d2fce0d09419ff0a719dbc7}
+      \strng{authorbibnamehash}{fbab83538d2fce0d09419ff0a719dbc7}
+      \strng{authornamehash}{e88bf4190ed535a1adb41a09929243d6}
+      \strng{authorfullhash}{fbab83538d2fce0d09419ff0a719dbc7}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Conference on Data Mining (ICDM)}
+      \field{title}{Matrix Profile VIII: Domain Agnostic Online Semantic Segmentation at Superhuman Performance Levels}
+      \field{year}{2017}
+      \field{pages}{117\bibrangedash 126}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/ICDM.2017.21
+      \endverb
+      \keyw{Time series analysis;Semantics;Hidden Markov models;Heart;Clustering algorithms;Motion segmentation;Sensors;Time Series;Semantic Segmentation;Online Algorithms}
+    \endentry
+    \entry{10}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=8d5b5e98a55e4f5262f328dd602a741d}{%
+           family={Grosser},
+           familyi={G\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=abaa4b7ccb89ee3eaa5185b712fe7964}{%
+           family={Verdoolaege},
+           familyi={V\bibinitperiod},
+           given={Sven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=172a9e8d07a17bf85f8736265ac88aae}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4d737229424772b5c49d6bd2a6233c12}{%
+           family={Sadayappan},
+           familyi={S\bibinitperiod},
+           given={Ponnuswamy},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \strng{fullhash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \strng{bibnamehash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \strng{authorbibnamehash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \strng{authornamehash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \strng{authorfullhash}{5a5d727bb2289d2f5bb842bf12050e4d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Parallel Processing Letters}
+      \field{month}{09}
+      \field{title}{The Relation Between Diamond Tiling and Hexagonal Tiling}
+      \field{volume}{24}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.1142/S0129626414410023
+      \endverb
+    \endentry
+    \entry{10460211}{article}{}
+      \name{author}{15}{}{%
+        {{un=0,uniquepart=base,hash=ce4fd9974b44266e4d9b7da0d672a8ea}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa08d5ad98bdf6dca9bbfa9a0096f292}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Xinhan},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=928f7791dba2687dc9c3b9c95cec541c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Huizheng},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=952bd79ef18226de1207bbaf3407c797}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Zhen},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=186a50bd79e17926063216e5f1abef2b}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Xingmao},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16c4a3e90b157a72dd5117823b1e42d4}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jiahao},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=765ff1a1957b7bd586f5289410b85e93}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Qize},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=05cfd0bcb3bc857f515fc6e69d6ca277}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Zheng},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=742e7bf49bf5a04b6fa3e705600784fc}{%
+           family={Guan},
+           familyi={G\bibinitperiod},
+           given={Sihan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=442a5b7619445d8044990fb934814a85}{%
+           family={Fang},
+           familyi={F\bibinitperiod},
+           given={Jiahao},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3bd72a3a5da6b5e46b7b3b55422b142d}{%
+           family={Shang},
+           familyi={S\bibinitperiod},
+           given={Haoran},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6825d2785e99eb0c1dcc0946e9608b44}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Xinru},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=15dfae1abf1e0cf157b3b25934143d10}{%
+           family={Dai},
+           familyi={D\bibinitperiod},
+           given={Xu},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6c5424354fd5fdd59005acaa2c6ab8ac}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Shaojun},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92658452364d8f5056e5b9fff19d7c5a}{%
+           family={Yin},
+           familyi={Y\bibinitperiod},
+           given={Shouyi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{dbaa93f58e3ca4d357e2c3e8a466feab}
+      \strng{fullhash}{86c67b2e5486a0a1ce0e4e32a453ad2e}
+      \strng{bibnamehash}{86c67b2e5486a0a1ce0e4e32a453ad2e}
+      \strng{authorbibnamehash}{86c67b2e5486a0a1ce0e4e32a453ad2e}
+      \strng{authornamehash}{dbaa93f58e3ca4d357e2c3e8a466feab}
+      \strng{authorfullhash}{86c67b2e5486a0a1ce0e4e32a453ad2e}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Circuits and Systems Magazine}
+      \field{number}{1}
+      \field{title}{Wafer-Scale Computing: Advancements, Challenges, and Future Perspectives [Feature]}
+      \field{volume}{24}
+      \field{year}{2024}
+      \field{pages}{52\bibrangedash 81}
+      \range{pages}{30}
+      \verb{doi}
+      \verb 10.1109/MCAS.2024.3349669
+      \endverb
+      \keyw{Wafer scale integration;Artificial intelligence;Hardware design languages;Transistors;Bandwidth;Chip scale packaging;Integrated circuit interconnections;Costs;Fault tolerant systems;Software systems;Computer architecture;AI chip;waferscale-computing;hardware architecture;software system}
     \endentry
     \entry{9}{misc}{}
       \name{author}{3}{}{%
@@ -270,6 +734,30 @@
       \field{year}{2022}
       \keyw{wafer-scale,stencil computation,multi-processor architecture and micro-architecture,high performance computing,energy,distributed memory}
     \endentry
+    \entry{12}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=36d43b2a34e323404932acccd839a5c2}{%
+           family={Lie},
+           familyi={L\bibinitperiod},
+           given={Sean},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{36d43b2a34e323404932acccd839a5c2}
+      \strng{fullhash}{36d43b2a34e323404932acccd839a5c2}
+      \strng{bibnamehash}{36d43b2a34e323404932acccd839a5c2}
+      \strng{authorbibnamehash}{36d43b2a34e323404932acccd839a5c2}
+      \strng{authornamehash}{36d43b2a34e323404932acccd839a5c2}
+      \strng{authorfullhash}{36d43b2a34e323404932acccd839a5c2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.cerebras.net/wp-content/uploads/2022/08/efficient-local-memory.jpg}}
+      \field{note}{[Accessed 03-03-2024]}
+      \field{title}{cerebras.net}
+      \field{year}{2022}
+    \endentry
     \entry{6}{inproceedings}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=9d84c03aa8f36bbb1d1af43433ce30d0}{%
@@ -344,6 +832,53 @@
       \endverb
       \keyw{FFT,wafer-scale,strong scaling,massive parallelization,explicit communication,mesh,network,bandwidth,programming models}
     \endentry
+    \entry{Silva2016SiMPleAM}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5db64a034543748c8740a92cf3b6e940}{%
+           family={Silva},
+           familyi={S\bibinitperiod},
+           given={Diego\bibnamedelima Furtado},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eaf600aded595e2d23fae65b275d824c}{%
+           family={Batista},
+           familyi={B\bibinitperiod},
+           given={Gustavo\bibnamedelimb E.\bibnamedelimi A.\bibnamedelimi P.\bibnamedelimi A.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=b417f0b6b69bda05d9053cc6dd6d7c19}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{d64095d482adee4dc94677d5f6bcd584}
+      \strng{fullhash}{d64095d482adee4dc94677d5f6bcd584}
+      \strng{bibnamehash}{d64095d482adee4dc94677d5f6bcd584}
+      \strng{authorbibnamehash}{d64095d482adee4dc94677d5f6bcd584}
+      \strng{authornamehash}{d64095d482adee4dc94677d5f6bcd584}
+      \strng{authorfullhash}{d64095d482adee4dc94677d5f6bcd584}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Society for Music Information Retrieval Conference}
+      \field{title}{SiMPle: Assessing Music Similarity Using Subsequences Joins}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:14118722
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:14118722
+      \endverb
+    \endentry
     \entry{7}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=cc8ae221397c02cc7a79528b9cbe5cc3}{%
@@ -405,6 +940,35 @@
       \verb https://www.sciencedirect.com/science/article/pii/S0010465523004174
       \endverb
       \keyw{High performance computing,Monte Carlo particle transport,Macroscopic cross section lookup,AI accelerators,Cerebras}
+    \endentry
+    \entry{11}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=cd508658409e71e432eb978b134a3faa}{%
+           family={Wonnacott},
+           familyi={W\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=129c02cf85b04a69e822c0000f59deaa}{%
+           family={Strout},
+           familyi={S\bibinitperiod},
+           given={Michelle},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{46c85e74a99eeea9125c087a180156cd}
+      \strng{fullhash}{46c85e74a99eeea9125c087a180156cd}
+      \strng{bibnamehash}{46c85e74a99eeea9125c087a180156cd}
+      \strng{authorbibnamehash}{46c85e74a99eeea9125c087a180156cd}
+      \strng{authornamehash}{46c85e74a99eeea9125c087a180156cd}
+      \strng{authorfullhash}{46c85e74a99eeea9125c087a180156cd}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{On the Scalability of Loop Tiling Techniques}
+      \field{year}{2013}
     \endentry
     \entry{1}{inproceedings}{}
       \name{author}{9}{}{%
@@ -482,6 +1046,59 @@
       \verb 10.1109/ICDM.2016.0179
       \endverb
       \keyw{Time series analysis;Approximation algorithms;Euclidean distance;Data mining;Indexes;Clustering algorithms;Text processing;Time Series;Similarity Joins;Motif Discovery}
+    \endentry
+    \entry{8594908}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=4a21facded71b2c81786f156cd7c6591}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f616301ec60a5f56e5dd437a7952dc}{%
+           family={Yeh},
+           familyi={Y\bibinitperiod},
+           given={Chin-Chia\bibnamedelima Michael},
+           giveni={C\bibinithyphendelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ba3a3d9bc0cfd3c3cc5c7ef92a9bbb44}{%
+           family={Zimmerman},
+           familyi={Z\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5927be35090e318935fc253b062b328a}{%
+           family={Kamgar},
+           familyi={K\bibinitperiod},
+           given={Kaveh},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1164ac6d1586ceeb53e02cf48b555413}{%
+           family={Keogh},
+           familyi={K\bibinitperiod},
+           given={Eamonn},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5657467fab0675096c2895f5e434692a}
+      \strng{fullhash}{c22c88046dda16c504255d2bb53e2c05}
+      \strng{bibnamehash}{c22c88046dda16c504255d2bb53e2c05}
+      \strng{authorbibnamehash}{c22c88046dda16c504255d2bb53e2c05}
+      \strng{authornamehash}{5657467fab0675096c2895f5e434692a}
+      \strng{authorfullhash}{c22c88046dda16c504255d2bb53e2c05}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2018 IEEE International Conference on Data Mining (ICDM)}
+      \field{title}{Matrix Profile XI: SCRIMP++: Time Series Motif Discovery at Interactive Speeds}
+      \field{year}{2018}
+      \field{pages}{837\bibrangedash 846}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/ICDM.2018.00099
+      \endverb
+      \keyw{Time series analysis;Approximation algorithms;Data mining;Neuroscience;Task analysis;Games;Batch production systems;Time Series;Anytime Algorithms;Motif Discovery}
     \endentry
     \entry{2}{inproceedings}{}
       \name{author}{8}{}{%

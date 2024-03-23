@@ -5,8 +5,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Maximum absolute error (Pearson Correlation) for various datasets on SCAMP in single precision. \blx@tocontentsinit {0}\cite {4} \relax }}{36}{table.caption.21}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Scamp Runtime\relax }}{37}{table.caption.24}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Device Timestamps used in the Heatmap in Figure \ref {fig:timestamps}\relax }}{33}{table.caption.36}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Matrix Profiling Runtime on SCAMP on GPUs and our implementation on the Cerebras WSE-2 \blx@tocontentsinit {0}\cite {4}\relax }}{45}{table.caption.47}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Maximum absolute error (Pearson Correlation) for various datasets/algorithms, compared to SCAMP double precision results, taken from \blx@tocontentsinit {0}\cite {4}. StarLightCurves results were performed on the Cerebras WSE-2\relax }}{47}{table.caption.49}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -2,114 +2,173 @@
 
 \chapter{Implementation}\label{chapter:implementation}
 
-The following chapter describes how the design described in Section 3 is realized as an Cerebras accelerated application. This chapter uses the Cerebras SDK conventions and/or syntax as the underlying work targets the Cerebras WSE-2 hardware.
-Before potraying concrete implementation choices, we briefly introduce the reader to the Cerebras SDK and the WSE programming paradigm.
+The following chapter describes how the design described in Section \ref{section:arch} is realized as an Cerebras application. This chapter uses the Cerebras SDK\footnote{https://sdk.cerebras.net/} conventions and syntax as the underlying work targets the Cerebras WSE-2 device.
+Before potraying concrete implementation choices, we briefly introduce the reader to the Cerebras SDK and the WSE programming paradigm. We then go through our execution model and take the reader through each component of the architecture, elaboriating on the steps involved in the Matrix Profile computation.
+
 \clearpage
-\section{WSE Programming Environment}
 
-To develop code for the WSE, we write device code in CSL, and host code in Python. we then compile the device code, and run the program on either the Cerebras fabric simulator, or the actual network-attached device. The host code is responsible for copying data to and from the device, and launching discrete programs referred to as kernels.
+\section{WSE Programming Environment} \label{section:wse_programming_env}
 
-\subsection{Execution Model}
+To develop programs for the WSE, we write device code in CSL, and host code in Python. we then compile the device code, and run the program on either the Cerebras fabric simulator, or the actual network-attached device. The host code is responsible for copying data to and from the device, and launching functions on the device.
 
-As described in Section 3.1, the design is split between a \texttt{Host Code} and a \texttt{CSL Kernel}. The \texttt{Host Code} is written in Python and uses the Cerebras SDK. It provides a host runtime known as \textit{SdkRuntime}, and associated functionality in the CSL memcpy library, to load programs, launch functions, and transfer data on and off the Wafer-Scale Engine.
+\subsection{Build Process} \label{section:build_process}
 
-The interaction between Host Code and kernel consists of four distinct stages:
+The build process is resembles a standard compilation for the device code which is compiled using the \texttt{cslc} compiler toolchain\footnote{https://sdk.cerebras.net/csl/csl-compiler}. It outputs binaries which are then picked up by the Python Host Code to be transfered to the device/simulator to all the allocated PEs. The build process is quite straightforward but is accompanied with a build script written with GNU make-files. The underlying work provides a more convenient Python wrapper that builds and runs the code on the simulator/device and verify the results.
+
+\subsection{Host-Device Interaction} \label{section:host_device}
+
+As described in Section \ref{section:arch}, the design is split across a \texttt{Host Application}, \texttt{Accelerated Kernel} and a \texttt{Wrapper Application}. The \texttt{Host Code} is written in Python and uses the Cerebras SDK. The SDK provides a host runtime known as the \textit{SdkRuntime}\footnote{https://sdk.cerebras.net/api-docs/sdkruntime-api}, and associated utility\footnote{https://sdk.cerebras.net/api-docs/sdkruntime-api\#sdk-utils} and debug functionality\footnote{https://sdk.cerebras.net/api-docs/sdkruntime-api\#debug-util} to load programs, launch functions, and transfer data to and from the device.
+
+The interaction between the host and device consists of four distinct stages:
 
 \begin{enumerate}
-    \item The \texttt{Host Code}  prepares the data for the given timeseries, sets up the kernel, connects to the Device/Simulator and setups up the required amount of Computing resource (\texttt{Resource Rectangle}) and transfers it to the device.
-    \item The execution of the kernel function on the PEs is triggered by the Host code.
-    \item Once all the PEs have performed the required computation, It triggers the host that it's ready to accept commands from the Host Code.
-    \item Finally, the Host code copies back the result into host memory.  
+    \item The Host prepares the data for the given time series, sets up the runtime, starts the simulator/connects to the device, setups up the required amount of computing resource (\texttt{Resource Rectangle}) and transfers data to the allocated PEs on the simulator/device.
+    \item It then triggers the kernel function on the PEs.
+    \item Once all the PEs have finished executing the required computation, The PEs are ready to accept commands from the host.
+    \item Finally, the Host copies back the result into host memory.
 \end{enumerate}
 
-\subsection{Build Process}
+\section{Host Application} \label{section:host_application}
 
-The build process is resembles a standard compilation for the device code which is compiled using the \texttt{cslc} compiler toolchain. It outputs binaries which are then picked up by the Python Host Code to be transfered to the device to all the allocated PEs.\\
-The build process is quite straightforward but is accompanied with a build script written with GNU make-files. The underlying work provides a more convenient Python wrapper that builds and runs the code on the Simulator/Device and verify the results.
+In this section, we delve into the implementation specifics of the \texttt{Host Application} outlined in Section \ref{section:arch}. As previously mentioned, the Host starts by loading the input time series from the files specified via command line arguments $file_a$ and $file_b$. It provides us the povision to process only specific tiles for computation or the entire time series. It performs the necessary pre-computation for the two time series and then initiates a \texttt{SdkRuntime}\footnote{https://sdk.cerebras.net/api-docs/sdkruntime-api} from the Cerebras library, which connects to and initializes the device or starts the Cerebras fabric simulator. The \texttt{SdkRuntime} provides access to symbols exposed by the kernel program which are used to transfer data to the PEs. Although the SDK allows for asynchronous execution of commands, we choose to use synchronous operations.
 
-\clearpage
-\section{Host Code}
+The Host Code then prepares the data required for computation and transfers them to the device. Figure \ref{code:memcpy_to} shows the function call to transfer data to the device. The \texttt{memcpy\_h2d} accpets a N-dimensional tensor and transfers it to a provided symbol to every PE in the \texttt{Resource Rectangle}. Each PE receives \texttt{MAX\_TILE\_SIZE - WINDOW + 1} elements of the prefactors and \texttt{MAX\_TILE\_SIZE + WINDOW} elements of both the time series. Large time series require large transfers to the device, and one approach is to split the transfer through multiple \texttt{memcpy\_h2d} calls, targeting different sections of the wafer. One caveat here is that the arrays declared in the kernel are statically sized and therefore require padding from the host with precise sizes.
 
-In this section, we discuss the implementation specifics of the \texttt{Host Code} outlined in Section 3.1. As previously mentioned, the Host code starts by loading the input time series from a file specified via a command line argument $(--file_a)$. The Host code also allows us to process only specific tiles for computation or the entire time series. It then performs the required pre-computation for the two time series. The Code then initiates a \texttt{SdkRuntime} from the cerebras library which connects to and initializes the device or starts the Cerebras fabric simulator. The \texttt{SdkRuntime} populates the allocated PEs with the binaries and provides access to symbols exposed by the kernel program.
+The \texttt{SdkRuntime} needs an artifact to run on the device or compiled binaries to run the simulator. Figure \ref{code:initialize_runner} shows the steps involved in invoking the \texttt{SdkRuntime}. Executing code on the hardware and simulator follows different execution paths and has varying compilation times\footnote{https://sdk.cerebras.net/appliance-mode.html}.
 
-The Host Code then prepares the data required for computation \[T_a, T_b, dg_a, dg_b, df_a, df_b, inv_a, inv_b, args\] and pushes them to the device. One caveat here is the fact that the arrays declared in the kernel are sized statically and therefore require padding from the host with precise sizes.
+Once the data is transferred, the kernel function $compute()$ is invoked as shown in Figure \ref{code:call}. Once the kernel function is complete and the device is ready to receive more commands, the tile aggregates are then transferred from the device as shown in Figure \ref{code:memcpy_from}, following the same convention as the call to transfer memory to the device.
+
+The received row- and column-aggregates are then merged into a unified matrix profile which is then persisted. The implementation allows executing tiles out of order or only specific tiles since the tiling and execution logic are decoupled.
 
 \begin{figure}[!ht]
     \centering
     \begin{minted}[mathescape, breaklines,frame=single, fontsize=\footnotesize]{python}
-    runner.memcpy_h2d(T_A_symbol, np.array(T_a, dtype=np.float32),
-                      0, 0, width, height,
-                      MAX_TILE_SIZE + WINDOW, streaming=False,
-                      order=MemcpyOrder.ROW_MAJOR,
-                      data_type=MemcpyDataType.MEMCPY_32BIT,
-                      nonblock=False)
-    runner.memcpy_h2d(T_B_symbol, np.array(T_b, dtype=np.float32),
-                      0, 0, width, height,
-                      MAX_TILE_SIZE + WINDOW, streaming=False,
-                      order=MemcpyOrder.ROW_MAJOR,
-                      data_type=MemcpyDataType.MEMCPY_32BIT,
-                      nonblock=False)
+if on_device:
+    # Read the artifact_id from the JSON file
+    with open("artifact_id.json", "r", encoding="utf8") as f:
+        data = json.load(f)
+        artifact_id = data["artifact_id"]
+    runner = SdkRuntime(artifact_id, simulator=False)
+    runner.start()
+else:
+    runner = SdkRuntime(args.name, cmaddr=args.cmaddr)
+
+    # Load and run the program
+    runner.load()
+    runner.run()
 \end{minted}
-\caption{Memory Copy to the device, The SDK allows us to define the order of exporting data along the PEs and the symbol to which the data needs to be transferred}\label{code:memcpy_to}
+\caption{Initializing \texttt{SdkRuntime} on the device and for the simulator. Notice the missing \texttt{load()} call to the runner on the device. This is due to a dynamic compilation routine that outputs an artifact\_id for the runtime to load the runtime from.}
+\label{code:initialize_runner}
 \end{figure}
 
 \begin{figure}[!ht]
     \centering
     \begin{minted}[mathescape, breaklines,frame=single, fontsize=\footnotesize]{python}
-    runner.launch('compute', nonblock=False)
+runner.memcpy_h2d(T_A_symbol, np.array(T_a, dtype=np.float32),
+                  0, 0, width, height,
+                  MAX_TILE_SIZE + WINDOW, streaming=False,
+                  order=MemcpyOrder.ROW_MAJOR,
+                  data_type=MemcpyDataType.MEMCPY_32BIT,
+                  nonblock=False)
+runner.memcpy_h2d(T_B_symbol, np.array(T_b, dtype=np.float32),
+                  0, 0, width, height,
+                  MAX_TILE_SIZE + WINDOW, streaming=False,
+                  order=MemcpyOrder.ROW_MAJOR,
+                  data_type=MemcpyDataType.MEMCPY_32BIT,
+                  nonblock=False)
 \end{minted}
+\caption{Memory copy to the device, the SDK allows us to define the order of exporting data along the PEs and the symbol to which the data needs to be transferred}
+\label{code:memcpy_to}
 \end{figure}
-
-Once the data is transfered, The kernel function $compute()$ is invoked. Once the kernel function is complete and the device to recieve more commands, The tile aggregates are then extracted from the device and merged based on the tile positions.
 
 \begin{figure}[!ht]
     \centering
-    \begin{minted}[mathescape, breaklines,frame=single, fontsize=\footnotesize]{python}
-    runner.memcpy_d2h(MP_A_result, MP_A_symbol,
-                      0, 0, width, height,
-                      MAX_TILE_SIZE - WINDOW + 1, streaming=False, 
-                      order=MemcpyOrder.ROW_MAJOR,
-                      data_type=MemcpyDataType.MEMCPY_32BIT,
-                      nonblock=False)
-    runner.memcpy_d2h(MP_B_result, MP_B_symbol,
-                      0, 0, width, height,
-                      MAX_TILE_SIZE - WINDOW + 1, streaming=False,
-                      order=MemcpyOrder.ROW_MAJOR,
-                      data_type=MemcpyDataType.MEMCPY_32BIT,
-                      nonblock=False)
+    \begin{minted}[mathescape, breaklines, frame=single, fontsize=\footnotesize]{python}
+runner.launch('compute', nonblock=False)
 \end{minted}
-\caption{Memory Copy from the device, Note the explicit PEs width and height declaration}\label{code:memcpy_from}
+\caption{The SDK allows us to launch functions on the device synchronously or asynchronous}
+\label{code:call}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \begin{minted}[mathescape, breaklines, frame=single, fontsize=\footnotesize]{python}
+runner.memcpy_d2h(MP_A_result, MP_A_symbol,
+                    0, 0, width, height,
+                    MAX_TILE_SIZE - WINDOW + 1, streaming=False, 
+                    order=MemcpyOrder.ROW_MAJOR,
+                    data_type=MemcpyDataType.MEMCPY_32BIT,
+                    nonblock=False)
+runner.memcpy_d2h(MP_B_result, MP_B_symbol,
+                    0, 0, width, height,
+                    MAX_TILE_SIZE - WINDOW + 1, streaming=False,
+                    order=MemcpyOrder.ROW_MAJOR,
+                    data_type=MemcpyDataType.MEMCPY_32BIT,
+                    nonblock=False)
+\end{minted}
+\caption{Memory Copy from the device, Note the explicit PEs width and height declaration}
+\label{code:memcpy_from}
 \end{figure}
 
 \section{Kernel Implementation}
 
-As elaborated in Section 3.4, The Kernel implements a tiled version of Matrix Profiling algorithm and each PE is capable of computing the row- and column-aggregates of a single tile with a upper bound on \texttt{Tile Size} of 100. Each kernel in addition gets the following args for computation.\\
-\(n_x, n_y\): They represent the actual boundaries of the tile and impact the runtime of the kernel. 
+As elaborated in Section \ref{section:kernel}, The kernel implements a tiled version of Matrix Profiling algorithm and each PE is capable of computing the row- and column-aggregates of a single tile. The kernel in addition, gets the following args for computation.
+\begin{itemize}
+    \item \(n_x, n_y\): The boundaries of the tile. 
+    \item \(exclusion\_lower_u, exclusion\_upper_u, exclusion\_lower_b, exclusion\_upper_b\): The exclusion boundaries provide a exclusion boundaries for the two triangles that are part of the square tile.
+    \item \(full\_tile\): The specifies the kernel if it has to compute only the upper triangle or both upper and the bottom triangle of the square tile.
+\end{itemize}
 
-\(exclusion\_lower_u, exclusion\_upper_u, exclusion\_lower_b, exclusion\_upper_b\): The exclusion boundaries provide a exclusion boundaries for the two triangles that are part of the tile and are taken into account when setting the kernel 
+\begin{figure}[!ht]
+    \centering
+    \begin{minted}[mathescape, breaklines, frame=single, fontsize=\footnotesize]{text}
+fn compute() void {      
+    if (full_tile == 0) {
+        compute_cov(&T_A, &T_B);
+        kernel(&NORM_A, &NORM_B, &DG_A, &DG_B, &DF_A, &DF_B, &MP_A, &MPI_A,
+               &MP_B, &MPI_B, n_x, n_y, exclusion_lower_u, exclusion_upper_u);
+    } else {
+        compute_cov(&T_A, &T_B);
+        kernel(&NORM_A, &NORM_B, &DG_A, &DG_B, &DF_A, &DF_B, &MP_A, &MPI_A,
+               &MP_B, &MPI_B, n_x, n_y, exclusion_lower_u, exclusion_upper_u);
+        // SWAP inputs for lower triangle
+        compute_cov(&T_B, &T_A);
+        kernel(&NORM_B, &NORM_A, &DG_B, &DG_A, &DF_B, &DF_A, &MP_B, &MPI_B,
+               &MP_A, &MPI_A, n_y, n_x, exclusion_lower_b, exclusion_upper_b);
+    }
+    @activate(EXIT);
+}
+\end{minted}
+\caption{Entry point to the kernel, this controls the kernel execution on the upper triangle or complete tile}\label{code:entry_function}
+\end{figure}
 
-\(full\_tile\): The specifies the kernel if it has to compute just the upper triangle or both upper and the bottom triangle of the square tile.
+\begin{figure}[!ht]
+    \centering
+    \begin{minted}[mathescape, breaklines,frame=single, fontsize=\footnotesize]{text}
+fn kernel(norm_a: [*]f32, norm_b: [*]f32, dg_a: [*]f32, dg_b: [*]f32,
+          df_a: [*]f32, df_b: [*]f32, P_a: *[N]f32, P_i_a: *[N]i32,
+          P_b: *[N]f32, P_i_b: *[N]i32, n_x: u16, n_y: u16,
+          exclusion_lower: u16, exclusion_upper: u16) void {
+    // Take into account exclusion zones while calculating
+    var row_iters: u16 = math_lib.min(n_x - exclusion_lower, n_y);
+    for (@range(u16, row_iters)) | row | {
+        var diag_max: u16 = math_lib.min(n_x - exclusion_upper + 1, n_x - row);
+        for (@range(u16, exclusion_lower, diag_max, 1)) | diag | {
+            // Calculate Pearson correlation
+            var corr: f32 = cov[diag] * norm_a[col] * norm_b[row];
+            var coeff: f32 = df_a[col] * dg_b[row] +
+                                dg_a[col] * df_b[row];
+            // Update QT of the next diag.
+            cov[diag] = cov[diag] + coeff;
+            // Update column and row aggregates
+            update_profile(corr, P_a, P_i_a, row, col);
+            update_profile(corr, P_b, P_i_b, col, row);
+        }
+    }
+}
+\end{minted}
+\caption{\textit{Matrix Profile} kernel. It computes the row- and column-aggregates for the upper triangle of the tile.}\label{code:profile_calculation}
+\label{code:main_kernel}
+\end{figure}
 
-The Kernel then computes the current rows $\overline{QT}$ for the two time series at that particular point using the following function.
-
-\begin{verbatim}
-    fn compute_cov(T_a: [*]f32, T_b: [*]f32) [*]f32
-\end{verbatim}
-
-Once $\overline{QT}$ is calculated then the kernel function is launched which calculates the row- and column-aggregates with the appropriate precomputed factors $dg, df$ and $inv$ to the following kernel function.
-
-\begin{verbatim}
-    fn kernel(norm_a: [*]f32, norm_b: [*]f32,
-              dg_a: [*]f32, dg_b: [*]f32,
-              df_a: [*]f32, df_b: [*]f32,
-              P_a: *[N]f32, P_i_a: *[N]i32,
-              P_b: *[N]f32, P_i_b: *[N]i32,
-              cov: [*]f32, n_x: u8, n_y: u8,
-              exclusion_lower: u8, exclusion_upper: u8) void
-\end{verbatim}
-
-
-
-The precomputed factors are flipped based on weather it is computing the upper tile or the bottom tile.
-
-Once the entire tile is completed, the \texttt{rowAggregates} and \texttt{columnAggregates} are then transfered to the host from all the PEs. The Host then reorders the aggregates based on tile information into a single Matrix Profile.
+Figure \ref{code:call} shows the entry point to the \texttt{Accelerated Kernel}, it decides if the PE is calculating only the upper triangle of the tile or the entire tile and calculates $\overline{QT}$ at that point and passes over the variables to the kernel function described in Figure \ref{code:main_kernel}. Notice the \texttt{@activate(EXIT)} at the end of the \texttt{compute} function, this signals the \texttt{SDKRuntime} that the PE is ready to accept calls from the device.

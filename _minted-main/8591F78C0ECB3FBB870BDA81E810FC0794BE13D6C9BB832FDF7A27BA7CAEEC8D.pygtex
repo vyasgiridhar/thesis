@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+fn compute() void \PYGZob{}
+    if (full\PYGZus{}tile == 0) \PYGZob{}
+        compute\PYGZus{}cov(\PYGZam{}T\PYGZus{}A, \PYGZam{}T\PYGZus{}B);
+        kernel(\PYGZam{}NORM\PYGZus{}A, \PYGZam{}NORM\PYGZus{}B, \PYGZam{}DG\PYGZus{}A, \PYGZam{}DG\PYGZus{}B, \PYGZam{}DF\PYGZus{}A, \PYGZam{}DF\PYGZus{}B, \PYGZam{}MP\PYGZus{}A, \PYGZam{}MPI\PYGZus{}A,
+               \PYGZam{}MP\PYGZus{}B, \PYGZam{}MPI\PYGZus{}B, n\PYGZus{}x, n\PYGZus{}y, exclusion\PYGZus{}lower\PYGZus{}u, exclusion\PYGZus{}upper\PYGZus{}u);
+    \PYGZcb{} else \PYGZob{}
+        compute\PYGZus{}cov(\PYGZam{}T\PYGZus{}A, \PYGZam{}T\PYGZus{}B);
+        kernel(\PYGZam{}NORM\PYGZus{}A, \PYGZam{}NORM\PYGZus{}B, \PYGZam{}DG\PYGZus{}A, \PYGZam{}DG\PYGZus{}B, \PYGZam{}DF\PYGZus{}A, \PYGZam{}DF\PYGZus{}B, \PYGZam{}MP\PYGZus{}A, \PYGZam{}MPI\PYGZus{}A,
+               \PYGZam{}MP\PYGZus{}B, \PYGZam{}MPI\PYGZus{}B, n\PYGZus{}x, n\PYGZus{}y, exclusion\PYGZus{}lower\PYGZus{}u, exclusion\PYGZus{}upper\PYGZus{}u);
+        // SWAP inputs for lower triangle
+        compute\PYGZus{}cov(\PYGZam{}T\PYGZus{}B, \PYGZam{}T\PYGZus{}A);
+        kernel(\PYGZam{}NORM\PYGZus{}B, \PYGZam{}NORM\PYGZus{}A, \PYGZam{}DG\PYGZus{}B, \PYGZam{}DG\PYGZus{}A, \PYGZam{}DF\PYGZus{}B, \PYGZam{}DF\PYGZus{}A, \PYGZam{}MP\PYGZus{}B, \PYGZam{}MPI\PYGZus{}B,
+               \PYGZam{}MP\PYGZus{}A, \PYGZam{}MPI\PYGZus{}A, n\PYGZus{}y, n\PYGZus{}x, exclusion\PYGZus{}lower\PYGZus{}b, exclusion\PYGZus{}upper\PYGZus{}b);
+    \PYGZcb{}
+    @activate(EXIT);
+\PYGZcb{}
+\end{Verbatim}

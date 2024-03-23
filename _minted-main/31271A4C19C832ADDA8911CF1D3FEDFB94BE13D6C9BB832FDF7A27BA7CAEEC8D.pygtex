@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+@set\PYGZus{}rectangle(WIDTH, HEIGHT);
+for (@range(i16, WIDTH)) | x | \PYGZob{}
+    for (@range(i16, HEIGHT)) | y | \PYGZob{}
+        @set\PYGZus{}tile\PYGZus{}code(x, y, \PYGZdq{}tile\PYGZus{}kernel.csl\PYGZdq{}, .\PYGZob{}
+            .memcpy\PYGZus{}params = memcpy.get\PYGZus{}params(x),
+            .LEN = LEN,
+            .WINDOW = WINDOW,
+            .N = LEN \PYGZhy{} WINDOW + 1,
+        \PYGZcb{});
+    \PYGZcb{}
+\PYGZcb{}
+\end{Verbatim}

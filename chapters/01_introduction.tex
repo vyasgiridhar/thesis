@@ -3,17 +3,8 @@
 
 \chapter{Introduction}\label{chapter:introduction}
 
-The understanding of the matrix profile, and its computation, is fundamental to the
-design of the underlying work. We briefly introduce the reader to concepts related to
-matrix profiles and their efficient computation, which are the basis for the formulations
-deployed on the Cerberas accelerator. Time series data mining, as data processing applications in
-general, greatly profits from streaming abstractions and the ability to express data
-transformations on a high level. We, therefore, employ a weak scaling approach to mapping the developed algorithm to a concrete hardware design running
-on the Cerebras accelerator. As the corresponding programming model is relatively novel and
-constitutes the basis of the introduced design and its subsequent implementation,
-the reader is introduced to fundamental concepts of the Accelerator and its abstractions. These
-concepts prove essential to address the complexities of the design while allowing the
-problem to be structured effectively.
-This chapter is split into two parts: first, the reader is introduced to the concept
-(and required notation) of a matrix profile and an algorithm (SCAMP) for its efficient
-computation; secondly, the chapter establishes fundamentals related to the target device, which make up the basic building blocks for the presented design and its implementation.
+In recent years, time series analysis has emerged as a vital tool across various fields including seismology \cite{10.1093/gji/ggy100}, medicine \cite{Fox_2017}, and music \cite{Silva2016SiMPleAM}. A fundamental aspect of time series data mining involves uncovering motifs and discords. The computation of motifs, discords \cite{1}, semantic segmentation \cite{8215484}, rule discovery, or clustering has historically been challenging. However, a novel structure known as the matrix profile has simplified these tasks. Consequently, efficient algorithms have been developed to compute the matrix profile, such as STAMP \cite{1}, STOMP \cite{2}, SCRIMP++ \cite{8594908}, and more recently, SCAMP\cite{4}. SCAMP, in particular, has gained popularity, particularly within the realm of High-Performance Computing (HPC). Simultaneously, Wafer-Scale Computing promises performance benefits and energy efficiency gains over traditional horizontal scaling infrastructures. Over the years, there have been many studies on the efficiency of Wafer-Scale computing \cite{10460211} when compared to traditional GPUs and CPUs. The Cerebras WSE-2 is a state-of-the-art Wafer-Scale Engine built for High-Performance Computing needs including the ever-increasing need for computing resources for AI and other HPC problems \cite{257870}, \cite{6}, \cite{3}, \cite{5}.
+
+In this work, we present an implementation of Matrix Profiling on the Cerebras Wafer-Scale Engine 2. We first describe the design and its subsequent implementation. First, the reader is introduced to the concept (and required notation) of a matrix profile and the algorithm (SCAMP) in Chapter \ref{chapter:theoretical_background}. We then take the reader through the design we chose to implement in Chapter \ref{chapter:design} with a hierarchical approach of a Wrapper and Host Application with an Accelerated Kernel. We also describe our Tiled Kernel derived from the SCAMP algorithm. We conclude the chapter by exploring different Tiling and Scheduling approaches. In Chapter \ref{chapter:implementation}, we delve into our implementation and the specifics of the Cerebras WSE-2. Subsequently, we present a theoretical execution model and empirical results from experimentation in Chapter \ref{chapter:measurements}, performed on the device provided by the EPIF\footnote{https://edinburgh-international-data-facility.ed.ac.uk/}, part of the University of Edinburgh. Specifically, we show the performance of Matrix Profiling on the Cerebras WSE-2 and talk about the limitations and capabilities of the device.
+
+Chapter \ref{chapter:experiences} finally highlights our experience porting the Matrix Profiling algorithm onto the Cerebras WSE-2 device and Chapter \ref{chapter:conclusion} talks about possible optimizations for future work. 

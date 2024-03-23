@@ -1,17 +1,17 @@
 \chapter{\abstractname}
 
-Time series data mining has become essential for a large variety of disciplines ranging from seismology to medicine. With the use of matrix profiles, most target analyses,
-especially motif or discord discovery, have become trivial to a large extend. As the original formulations for calculating the matrix profile were relatively ineffective,
-substantial effort has been invested in computing them efficiently. In particular, the
-state-of-the-art algorithm SCAMP has convinced with its simplicity, parallelizability,
-and efficiency.
+Time series data mining has become indispensable across various disciplines, from astronomy to medicine. The utilization of matrix profiles has greatly facilitated target analyses, such as motif or discord discovery, making them considerably easier. While the initial methods for calculating the matrix profile were inefficient, significant efforts have been devoted to improving their computation efficiency. Among these, the SCAMP algorithm stands out for its simplicity, parallelizability, and effectiveness.
 
-As FPGA acceleration promises a combination of high performance
-and competitive energy efficiency, we present a - to the best of our knowledge first -
-systolic array-based design, based on the SCAMP algorithm, to compute matrix profiles
-efficiently on FPGAs. Our design mapped to a concrete architecture using a High-Level
-Synthesis tool. This approach allows us to maintain a high level of abstraction, use
-streaming abstractions, and enable maintainability and portability across FPGA devices.
-Kernels synthesized from our design are shown to offer competitive performance in
-practice, scaling with both compute and memory resources. Finally, we outline possible
-optimizations as a basis for future work.
+Wafer scale technology offers the promise of high performance and competitive energy efficiency for various HPC workloads. In this thesis, we introduce a Matrix Profiling Algorithm, based on the SCAMP algorithm, tailored for efficient computation on the Cerebras WSE-2. Given the novelty of Wafer Scale Computing, we explored the capabilities of the device and highlighted the challenges associated with implementing such an algorithm under memory and compute constraints. Finally, we propose potential optimizations to serve as a foundation for future research.
+\newline
+
+Die Auswertung von Zeitreihendaten ist in verschiedenen Disziplinen unverzichtbar geworden, von
+Astronomie bis zur Medizin. Die Nutzung von Matrixprofilen hat Zielanalysen ermöglicht wie z. B. die Entdeckung von Motiven oder Diskord, erheblich vereinfacht. Weil die ursprünglichen Methoden zur Berechnung des Matrixprofils ineffizient waren, wurden erhebliche Anstrengungen unternommen, um ihre Berechnungseffizienz zu verbessern. Unter diesen Methoden zeichnet sich der SCAMP Algorithmus durch seine Einfachheit, Parallelisierbarkeit und Effektivität aus.
+
+Die Wafer-Scale-Technologie verspricht eine hohe Leistung und eine wettbewerbsfähige
+Energieeffizienz für verschiedene HPC-Workloads. In dieser Masterarbeit stellen wir einen Matrix
+Profiling-Algorithmus vor, der auf dem SCAMP-Algorithmus basiert und für effiziente Berechnungen
+auf dem Cerebras WSE-2 zugeschnitten ist. Angesichts der Neuartigkeit des Wafer Scale Computing haben wir die
+Fähigkeiten des Geräts untersucht und die Herausforderungen aufgezeigt, die mit der Implementierung
+eines solchen Algorithmus unter Speicher- und Rechenbeschränkungen. Schließlich empfehlen wir potenzielle
+Optimierungsmöglichkeiten, die als Grundlage für zukünftige Forschungen dienen können.

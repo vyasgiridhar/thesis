@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+fn kernel(norm\PYGZus{}a: [*]f32, norm\PYGZus{}b: [*]f32, dg\PYGZus{}a: [*]f32, dg\PYGZus{}b: [*]f32,
+          df\PYGZus{}a: [*]f32, df\PYGZus{}b: [*]f32, P\PYGZus{}a: *[N]f32, P\PYGZus{}i\PYGZus{}a: *[N]i32,
+          P\PYGZus{}b: *[N]f32, P\PYGZus{}i\PYGZus{}b: *[N]i32, n\PYGZus{}x: u16, n\PYGZus{}y: u16,
+          exclusion\PYGZus{}lower: u16, exclusion\PYGZus{}upper: u16) void \PYGZob{}
+    // Take into account exclusion zones while calculating
+    var row\PYGZus{}iters: u16 = math\PYGZus{}lib.min(n\PYGZus{}x \PYGZhy{} exclusion\PYGZus{}lower, n\PYGZus{}y);
+    for (@range(u16, row\PYGZus{}iters)) | row | \PYGZob{}
+        var diag\PYGZus{}max: u16 = math\PYGZus{}lib.min(n\PYGZus{}x \PYGZhy{} exclusion\PYGZus{}upper + 1, n\PYGZus{}x \PYGZhy{} row);
+        for (@range(u16, exclusion\PYGZus{}lower, diag\PYGZus{}max, 1)) | diag | \PYGZob{}
+            // Calculate Pearson correlation
+            var corr: f32 = cov[diag] * norm\PYGZus{}a[col] * norm\PYGZus{}b[row];
+            var coeff: f32 = df\PYGZus{}a[col] * dg\PYGZus{}b[row] +
+                                dg\PYGZus{}a[col] * df\PYGZus{}b[row];
+            // Update QT of the next diag.
+            cov[diag] = cov[diag] + coeff;
+            // Update column and row aggregates
+            update\PYGZus{}profile(corr, P\PYGZus{}a, P\PYGZus{}i\PYGZus{}a, row, col);
+            update\PYGZus{}profile(corr, P\PYGZus{}b, P\PYGZus{}i\PYGZus{}b, col, row);
+        \PYGZcb{}
+    \PYGZcb{}
+\PYGZcb{}
+\end{Verbatim}

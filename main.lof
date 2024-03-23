@@ -2,27 +2,41 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Time Series of length \( \textit {n} \) = 13 and Subsequence \( T_{5,4} \) \relax }}{3}{figure.caption.3}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Matrix Profile $MP$ of a Time series $T$ as the column-wise minima of the Distance Matrix and the Matrix Profile Index $MPI$ as the vector of the corresponding indices. In this example, $d_{2,j}$ represents a column-wise minimum and is therefore integrated into the Matrix Profile.\relax }}{6}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Computation performed by the SCAMP algorithm. In particular, only values above (and including) the main diagonal are computed. The diagonal dependency introduced through the updated formulation is visualized through upward-pointing arrows.\relax }}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces An overview of the Wafer Scale Engine (WSE). The WSE (to the right) occupies an entire wafer, and is a 2D array of dies. Each die is itself a grid of tiles (in the middle), which contains a router, a processing element and single-cycle access memory (to the left). In total, the WSE-2 embeds 2.6 trillion transistors in a silicon area of 46,225 mm2. \blx@tocontentsinit {0}\cite {9}\relax }}{9}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces The PEs are interconnected cardinally allowing for communication between PEs in packets of size 32 bits.\relax }}{10}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces A \texttt {Resource Rectangle}, allocating a partial rectangle of the Wafer for computation\relax }}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Time Series of length \( \textit {n} \) = 13 and Subsequence \( T_{5,4} \) \relax }}{3}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Matrix Profile $MP$ of a Time series $T$ as the column-wise minima of the Distance Matrix and the Matrix Profile Index $MPI$ as the vector of the corresponding indices. In this example, $d_{2,j}$ represents a column-wise minimum and is therefore integrated into the Matrix Profile.\relax }}{6}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Computation performed by the SCAMP algorithm. In particular, only values above (and including) the main diagonal are computed. The diagonal dependency introduced through the updated formulation is visualized through upward-pointing arrows.\relax }}{8}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces An overview of the Wafer Scale Engine (WSE). The WSE (to the right) occupies an entire wafer, and is a 2D array of dies. Each die is itself a grid of tiles (in the middle), which contains a router, a processing element and single-cycle access memory (to the left). In total, the WSE-2 embeds 2.6 trillion transistors in a silicon area of 46,225 mm2. \blx@tocontentsinit {0}\cite {9}\relax }}{9}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The PEs are interconnected cardinally allowing for communication between PEs in packets of size 32 bits.\relax }}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces A \texttt {Resource Rectangle}, allocating a partial rectangle of the Wafer for computation\relax }}{11}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces The Cerebras PE core memory design \blx@tocontentsinit {0}\cite {12}\relax }}{12}{figure.caption.23}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture\relax }}{14}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Tiling Representation\relax }}{20}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces One Shot Execution of a small Time Series\relax }}{23}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Iterative Execution of a large Time Series\relax }}{24}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture of our application\relax }}{14}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Setting a \texttt {Resource Rectangle} of size \texttt {WIDTH} and \texttt {HEIGHT} and distributing \texttt {tile\_kernel.csl} to each PE with params for \texttt {Tile Size} and \texttt {window}\relax }}{16}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Tiling Representation\relax }}{19}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces One Shot Execution of a small Time Series\relax }}{23}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Iterative Execution of a large Time Series\relax }}{24}{figure.caption.28}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Memory Copy to the device, The SDK allows us to define the order of exporting data along the PEs and the symbol to which the data needs to be transferred\relax }}{27}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Memory Copy from the device, Note the explicit PEs width and height declaration\relax }}{28}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Initializing \texttt {SdkRuntime} on the device and for the simulator. Notice the missing \texttt {load()} call to the runner on the device. This is due to a dynamic compilation routine that outputs an artifact\_id for the runtime to load the runtime from.\relax }}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Memory copy to the device, the SDK allows us to define the order of exporting data along the PEs and the symbol to which the data needs to be transferred\relax }}{28}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The SDK allows us to launch functions on the device synchronously or asynchronous\relax }}{29}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Memory Copy from the device, Note the explicit PEs width and height declaration\relax }}{29}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Entry point to the kernel, this controls the kernel execution on the upper triangle or complete tile\relax }}{30}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Matrix Profile} kernel. It computes the row- and column-aggregates for the upper triangle of the tile.\relax }}{30}{figure.caption.34}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Plot of Observed Execution time of different tile sizes on the Simulator\relax }}{32}{figure.caption.16}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Floating point operations vs tile size\relax }}{33}{figure.caption.19}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Memory Usage of a single PE plotted against Tile Size. The theoretical limit to the tile size is 1010 but what is observed is a maximum limit of 100 per PE. Practically, we were able to use only 4.566 KB of memory of the PE.\relax }}{34}{figure.caption.20}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Time series of different random distributions\relax }}{36}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Error rate on different probabilistic distributions\relax }}{37}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Start} and \textit {End Timestamps} of PEs for a $1 \times 6$ \texttt {Resource Rectangle}\relax }}{33}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparison of \textit {Kernel Execution Time} of increasing tile sizes $t_s$ on a single PE computing a half and complete tile.\relax }}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Memory Usage (\textit {M}) of a single PE plotted against Tile Size $t_s$. The theoretical limit to $t_s$ is 1010 but what is observed is a maximum limit of 835 per PE. In practice, we were able to use 39.01 KB of memory of the 48KB available in a PE.\relax }}{36}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \textit {Memory Transfer Time} in seconds and \textit {Bandwidth} in KB/s of time series of increasing sizes.\relax }}{36}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \textit {Memory Transfer time} on different resource rectangle configurations allocated at an offset of 4, 4 on the wafer.\relax }}{38}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \textit {Memory Transfer time} on different resource rectangle configurations allocated at an offset of 300, 300 on the wafer.\relax }}{38}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \textit {Total Execution Times} for series of increasing sizes.\relax }}{39}{figure.caption.42}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces \textit {Total Execution Time}: Aggregate execution times comprising both memory transfer and kernel execution times for time series of increasing sizes.\relax }}{41}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces \textit {Weak Scaling} effects of the Cerebras WSE-2 on large time series.\relax }}{42}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces \textit {Strong Scaling} - Kernel Execution time with increasing \texttt {Resource Rectangle} sizes\relax }}{43}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Error rate on different probabilistic distributions\relax }}{44}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces \textit {Total Execution Time} of different iterations on a time series of size 1M\relax }}{46}{figure.caption.48}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \textit {Average Execution Times} of a Matrix Profiling program on the Cerebras\relax }}{49}{figure.caption.50}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
